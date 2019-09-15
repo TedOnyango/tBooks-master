@@ -19,7 +19,7 @@
             <TextView
                 android:id="@+id/tvTitle"
                 android:layout_width="390dp"
-                android:layout_height="56dp"
+                android:layout_height="0dp"
                 android:layout_marginStart="@dimen/standard_margin"
                 android:layout_marginTop="@dimen/standard_margin"
                 android:layout_marginEnd="@dimen/standard_margin"
@@ -31,7 +31,7 @@
 
             <TextView
                 android:id="@+id/tvSubtitle"
-                android:layout_width="382dp"
+                android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_marginTop="@dimen/standard_margin"
                 android:text="@{Book.subTitle}"
@@ -46,8 +46,8 @@
                 android:layout_height="235dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
+                app:srcCompat="@drawable/book_open"
                 android:contentDescription="@string/image_description"
-
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvSubtitle" />
 
