@@ -48,13 +48,14 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.BookViewHold
         TextView tvAuthors;
         TextView tvDate;
         TextView tvPublisher;
+        TextView tvDescription;
 
         public BookViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
             tvAuthors = (TextView) itemView.findViewById(R.id.tvAuthors);
             tvDate = (TextView) itemView.findViewById(R.id.tvPublishedDate);
-            tvPublisher = (TextView) itemView.findViewById(R.id.tvAuthors);
+            tvPublisher = (TextView) itemView.findViewById(R.id.tvPublisher);
             itemView.setOnClickListener(this);
         }
         public void bind (Book book) {

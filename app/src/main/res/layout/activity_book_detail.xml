@@ -23,7 +23,6 @@
                 android:layout_marginStart="@dimen/standard_margin"
                 android:layout_marginTop="@dimen/standard_margin"
                 android:layout_marginEnd="@dimen/standard_margin"
-                android:text="@{Book.title}"
                 android:textSize="@dimen/title_text_size"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +33,6 @@
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_marginTop="@dimen/standard_margin"
-                android:text="@{Book.subTitle}"
                 android:textSize="@dimen/subtitle_text_size"
                 app:layout_constraintEnd_toEndOf="@+id/tvTitle"
                 app:layout_constraintStart_toStartOf="@+id/tvTitle"
@@ -58,14 +56,13 @@
                 android:layout_marginStart="@dimen/standard_margin"
                 android:layout_marginTop="@dimen/standard_margin"
                 android:layout_marginEnd="@dimen/standard_margin"
-                android:text="@{Book.authors}"
                 android:textSize="@dimen/author_text_size"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tvBookImage"
                 app:layout_constraintTop_toBottomOf="@+id/tvSubtitle" />
 
             <TextView
-                android:id="@+id/tvPublishedDate"
+                android:id="@+id/tvPublisher"
                 android:layout_width="141dp"
                 android:layout_height="26dp"
                 android:layout_marginStart="16dp"
@@ -73,6 +70,16 @@
                 android:text="TextView"
                 app:layout_constraintStart_toEndOf="@+id/tvBookImage"
                 app:layout_constraintTop_toBottomOf="@+id/tvAuthors" />
+
+            <TextView
+                android:id="@+id/tvPublishedDate"
+                android:layout_width="147dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="TextView"
+                app:layout_constraintStart_toEndOf="@+id/tvBookImage"
+                app:layout_constraintTop_toBottomOf="@+id/tvPublisher" />
 
             <TextView
                 android:id="@+id/tvDescription"
