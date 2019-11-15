@@ -1,10 +1,12 @@
 package com.ted.books;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,12 +31,20 @@ public class BookListActivity extends AppCompatActivity implements SearchView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_list);
         mLoadingProgress = (ProgressBar) findViewById(R.id.pb_loading);
+        Intent intent = getIntent();
+        String query = intent.getStringExtra("Query");
+        URL bookUrl;
         rvBooks = (RecyclerView) findViewById(R.id.rv_books);
         LinearLayoutManager booksLayoutManager = new LinearLayoutManager(this,
                 LinearLayoutManager.VERTICAL, false);
         rvBooks.setLayoutManager(booksLayoutManager);
         try {
-            URL bookUrl = ApiUtil.buildUrl("Travel");
+            if(query == null || query.isEmpty()) {
+                 bookUrl = ApiUtil.buildUrl("Cooking");
+            }
+            else {
+                bookUrl = new URL(query);
+            }
            new BooksQueryTask().execute(bookUrl);
 
         }
@@ -51,6 +61,22 @@ public class BookListActivity extends AppCompatActivity implements SearchView.On
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
         searchView.setOnQueryTextListener(this);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_advanced_search:
+                Intent intent = new Intent(this, SearchActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+
+
+
+        }
+
     }
 
     @Override
@@ -96,13 +122,14 @@ public class BookListActivity extends AppCompatActivity implements SearchView.On
             else {
                 rvBooks.setVisibility(View.VISIBLE);
                 tvError.setVisibility(View.INVISIBLE);
+
             }
+
             ArrayList<Book> books = ApiUtil.getBooksFromJson(result);
             String resultString = "";
 
             BooksAdapter adapter = new BooksAdapter(books);
             rvBooks.setAdapter(adapter);
-
 
 
         }

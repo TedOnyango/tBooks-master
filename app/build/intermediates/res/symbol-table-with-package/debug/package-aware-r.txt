@@ -516,6 +516,7 @@ dimen abc_text_size_title_material
 dimen abc_text_size_title_material_toolbar
 dimen author_text_size
 dimen authors_size
+dimen btn_txt
 dimen compat_button_inset_horizontal_material
 dimen compat_button_inset_vertical_material
 dimen compat_button_padding_horizontal_material
@@ -538,6 +539,7 @@ dimen hint_pressed_alpha_material_light
 dimen item_touch_helper_max_drag_scroll_per_frame
 dimen item_touch_helper_swipe_escape_max_velocity
 dimen item_touch_helper_swipe_escape_velocity
+dimen margin_search_activity
 dimen notification_action_icon_size
 dimen notification_action_text_size
 dimen notification_big_circle_margin
@@ -666,6 +668,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable search_button_shape
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
@@ -674,6 +677,7 @@ id FUNCTION
 id META
 id SHIFT
 id SYM
+id action_advanced_search
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -702,7 +706,9 @@ id async
 id barrier
 id beginning
 id blocking
+id bookImage
 id bottom
+id btnSearch
 id buttonPanel
 id center
 id center_horizontal
@@ -717,6 +723,7 @@ id content
 id contentPanel
 id custom
 id customPanel
+id dataBinding
 id decor_content_parent
 id default_activity_button
 id dimensions
@@ -724,6 +731,10 @@ id direct
 id disableHome
 id edit_query
 id end
+id etAuthor
+id etPublisher
+id etSBN
+id etTitle
 id expand_activities_button
 id expanded_menu
 id fill
@@ -757,6 +768,8 @@ id normal
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id onAttachStateChangeListener
+id onDateChanged
 id packed
 id parent
 id parentPanel
@@ -807,6 +820,7 @@ id text
 id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
+id textWatcher
 id time
 id title
 id titleDividerNoCustom
@@ -814,7 +828,6 @@ id title_template
 id top
 id topPanel
 id tvAuthors
-id tvBookImage
 id tvDescription
 id tvPublishedDate
 id tvPublisher
@@ -862,6 +875,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_book_detail
 layout activity_book_list
+layout activity_search
 layout book_list_item
 layout notification_action
 layout notification_action_tombstone
@@ -915,10 +929,16 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
+string advanced_search
 string app_name
 string error_data_message
+string hint_ISBN
+string hint_authors
+string hint_publisher
+string hint_title
 string image_description
 string loading_error
+string no_search_data
 string search
 string search_menu_title
 string status_bar_notification_info_overflow
