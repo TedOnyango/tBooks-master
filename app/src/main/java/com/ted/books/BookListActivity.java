@@ -30,11 +30,11 @@ public class BookListActivity extends AppCompatActivity implements SearchView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_list);
-        mLoadingProgress = (ProgressBar) findViewById(R.id.pb_loading);
+        mLoadingProgress = findViewById(R.id.pb_loading);
         Intent intent = getIntent();
         String query = intent.getStringExtra("Query");
         URL bookUrl;
-        rvBooks = (RecyclerView) findViewById(R.id.rv_books);
+        rvBooks = findViewById(R.id.rv_books);
         LinearLayoutManager booksLayoutManager = new LinearLayoutManager(this,
                 LinearLayoutManager.VERTICAL, false);
         rvBooks.setLayoutManager(booksLayoutManager);
@@ -118,21 +118,15 @@ public class BookListActivity extends AppCompatActivity implements SearchView.On
             if (result == null) {
                 rvBooks.setVisibility(View.INVISIBLE);
                 tvError.setVisibility(View.VISIBLE);
-            }
-            else {
+            } else {
                 rvBooks.setVisibility(View.VISIBLE);
                 tvError.setVisibility(View.INVISIBLE);
-                ArrayList<Book> books = ApiUtil.getBooksFromJson(result);
-                String resultString = "";
-//TODO : Fix the books adapter
-                BooksAdapter adapter = new BooksAdapter(books);
-                rvBooks.setAdapter(adapter);
-
             }
+            ArrayList<Book> books = ApiUtil.getBooksFromJson(result);
+            String resultString = "";
 
-
-
-
+            BooksAdapter adapter = new BooksAdapter(books);
+            rvBooks.setAdapter(adapter);
         }
 
         @Override

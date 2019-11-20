@@ -136,7 +136,7 @@ public class ApiUtil {
                         (volumeInfoJSON.isNull(PUBLISHER)?"":volumeInfoJSON.getString(PUBLISHER)),
                         (volumeInfoJSON.isNull(PUBLISHED_DATE)?"":volumeInfoJSON.getString(PUBLISHED_DATE)),
                         (volumeInfoJSON.isNull(DESCRIPTION)?"":volumeInfoJSON.getString(DESCRIPTION)),
-                        (imageLinksJSON==null)?"":volumeInfoJSON.getString(THUMBNAIL));
+                        imageLinksJSON.getString(THUMBNAIL));
                 books.add(book);
             }
         }
